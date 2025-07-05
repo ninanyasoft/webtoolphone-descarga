@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,6 +36,17 @@
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .alert {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 10px 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 0 auto 30px;
+      font-size: 0.95rem;
     }
 
     button {
@@ -75,6 +87,14 @@
       margin-top: 5px;
     }
 
+    #successMessage {
+      display: none;
+      margin-top: 20px;
+      color: #27ae60;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
     @media screen and (max-width: 480px) {
       h1 {
         font-size: 1.5rem;
@@ -93,20 +113,27 @@
 </head>
 <body>
 
+  <div class="alert">
+    ⚠️ No cierres esta ventana. Haz clic en los enlaces y vuelve aquí para completar la activación de tu descarga.
+  </div>
+
   <h1>¡Descárgalo totalmente gratis ahora!</h1>
-  <p>Haz click 5 veces en el botón <strong>“Activar descarga”</strong> para habilitar la descarga directa por MediaFire o Mega.</p>
+  <p>Haz clic 5 veces en el botón <strong>“Activar descarga”</strong> para habilitar la descarga directa por MediaFire o Mega.</p>
 
   <button id="activateBtn">Activar descarga</button>
-  <div class="counter">Clicks: <span id="clickCount">0</span> / 5</div>
+  <div class="counter">Clics: <span id="clickCount">0</span> / 5</div>
 
   <br />
 
   <button id="downloadBtn" disabled>Descargar ahora</button>
 
+  <div id="successMessage">✅ ¡Tu descarga ha sido activada! Ya puedes descargar tu archivo.</div>
+
   <script>
     const activateBtn = document.getElementById('activateBtn');
     const downloadBtn = document.getElementById('downloadBtn');
     const clickCountEl = document.getElementById('clickCount');
+    const successMessage = document.getElementById('successMessage');
 
     const redirectUrls = [
       "https://www.profitableratecpm.com/vknry4u8?key=9df3f46832183b84289d47934e202ac4",
@@ -127,11 +154,12 @@
 
       if (clickCount >= 5) {
         downloadBtn.disabled = false;
+        successMessage.style.display = 'block';
+        if (navigator.vibrate) navigator.vibrate(200);
       }
     });
 
     downloadBtn.addEventListener('click', () => {
-      // Reemplaza por el enlace final real:
       window.open("https://www.mediafire.com/file/1izc5tr5d9dky0x/PrimeTool2.4.rar/file", '_blank');
     });
   </script>
