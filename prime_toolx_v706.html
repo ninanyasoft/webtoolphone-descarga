@@ -1,83 +1,108 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Prime ToolX v7.0.6 - Free Download 2025</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descarga Prime ToolX</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
+      text-align: center;
+      padding: 40px 20px;
       background-color: #f9f9f9;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 12px;
-    }
+
     h1 {
       color: #333;
       font-size: 24px;
+      margin-bottom: 10px;
     }
+
     p {
-      color: #555;
-    }
-    img {
-      width: 100%;
-      border-radius: 10px;
-      margin: 20px 0;
-    }
-    .btn {
-      padding: 12px 24px;
+      color: #666;
       font-size: 16px;
-      margin-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      margin: 10px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #activateBtn {
+      background-color: #f39c12;
       color: white;
-      background-color: #007bff;
     }
-    .btn:hover {
-      background-color: #0056b3;
+
+    #activateBtn:hover {
+      background-color: #e67e22;
     }
-    .btn-download {
-      background-color: #28a745;
-      display: none;
-      text-decoration: none;
+
+    #downloadBtn {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    #downloadBtn:disabled {
+      background-color: #bdc3c7;
+      cursor: not-allowed;
+    }
+
+    .counter {
+      font-size: 16px;
+      color: #555;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Prime ToolX v7.0.6 - Free Download 2025</h1>
-    <p>Herramienta de reparación avanzada para Android – versión 2025. Compatible con múltiples marcas y modelos. Incluye mejoras de seguridad y nuevas funciones.</p>
-    <img src="primetool.png" />
 
+  <h1>¡Descárgalo totalmente gratis ahora!</h1>
+  <p>Haz click 5 veces en el botón <strong>“Activar descarga”</strong> para habilitar la descarga directa por MediaFire o Mega.</p>
 
-    <button class="btn" onclick="handleClick()">Descargar</button>
-    <a id="real-download" class="btn btn-download" href="https://www.mediafire.com/file/1izc5tr5d9dky0x/PrimeTool2.4.rar/file" download>Descargar Archivo</a>
-  </div>
+  <button id="activateBtn">Activar descarga</button>
+  <div class="counter">Clicks: <span id="clickCount">0</span> / 5</div>
+
+  <br><br>
+
+  <button id="downloadBtn" disabled>Descargar ahora</button>
 
   <script>
-    let clickCount = 0;
-    const urls = [
-      'https://www.profitableratecpm.com/vknry4u8?key=9df3f46832183b84289d47934e202ac4',
-      'https://www.profitableratecpm.com/a73ufgi0?key=2aac1674131a660cab308352aa0660fe',
-      'https://www.profitableratecpm.com/vzr76297qb?key=3041353f5f3518ca870ec1a17584174f'
+    const activateBtn = document.getElementById('activateBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const clickCountEl = document.getElementById('clickCount');
+
+    const redirectUrls = [
+      "https://www.profitableratecpm.com/vknry4u8?key=9df3f46832183b84289d47934e202ac4",
+      "https://www.profitableratecpm.com/a73ufgi0?key=2aac1674131a660cab308352aa0660fe",
+      "https://www.profitableratecpm.com/vzr76297qb?key=3041353f5f3518ca870ec1a17584174f",
+      "https://www.profitableratecpm.com/vzr76297qb?key=3041353f5f3518ca870ec1a17584174f",
+      "https://www.profitableratecpm.com/vknry4u8?key=9df3f46832183b84289d47934e202ac4"
     ];
 
-    function handleClick() {
-      if (clickCount < 3) {
-        window.open(urls[clickCount], '_blank');
-        clickCount++;
+    let clickCount = 0;
+
+    activateBtn.addEventListener('click', () => {
+      const url = redirectUrls[clickCount % redirectUrls.length];
+      window.open(url, '_blank');
+
+      clickCount++;
+      clickCountEl.textContent = clickCount;
+
+      if (clickCount >= 5) {
+        downloadBtn.disabled = false;
       }
-      if (clickCount === 3) {
-        document.getElementById('real-download').style.display = 'inline-block';
-      }
-    }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      // Reemplaza por el enlace final real:
+      window.open("https://www.mediafire.com/file/1izc5tr5d9dky0x/PrimeTool2.4.rar/file", '_blank');
+    });
   </script>
 </body>
 </html>
