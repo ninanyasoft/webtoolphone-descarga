@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Descarga - Prime ToolX v7.0.6</title>
+  <style>
+    :root {
+      --primary-color: #f39c12;
+      --primary-hover: #e67e22;
+      --success-color: #2ecc71;
+      --disabled-color: #bdc3c7;
+      --text-dark: #333;
+      --text-light: #666;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--text-dark);
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin-bottom: 30px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .alert {
+      background-color: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 10px 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 0 auto 30px;
+      font-size: 0.95rem;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      margin: 10px auto;
+      display: block;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      width: 90%;
+      max-width: 300px;
+    }
+
+    #activateBtn {
+      background-color: var(--primary-color);
+      color: #fff;
+    }
+
+    #activateBtn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    #downloadBtn {
+      background-color: var(--success-color);
+      color: #fff;
+    }
+
+    #downloadBtn:disabled {
+      background-color: var(--disabled-color);
+      cursor: not-allowed;
+    }
+
+    .counter {
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-top: 5px;
+    }
+
+    #successMessage {
+      display: none;
+      margin-top: 20px;
+      color: #27ae60;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="alert">
+    👁️‍🗨️ Al hacer clic, se abrirán nuevas ventanas. ¡Espera 5 segundos en cada una, ciérrala y regresa aquí! ❌ No cierres esta ventana principal.
+  </div>
+
+  <h1>¡Descárgalo totalmente gratis ahora!</h1>
+  <p>Haz clic 5 veces en el botón <strong>“Activar descarga”</strong> para habilitar la descarga directa por MediaFire o Mega.</p>
+
+  <button id="activateBtn">Activar descarga</button>
+  <div class="counter">Clics: <span id="clickCount">0</span> / 5</div>
+
+  <br />
+
+  <button id="downloadBtn" disabled>Descargar ahora</button>
+
+  <div id="successMessage">✅ ¡Tu descarga ha sido activada! Ya puedes descargar tu archivo.</div>
+
+  <script>
+    const activateBtn = document.getElementById('activateBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const clickCountEl = document.getElementById('clickCount');
+    const successMessage = document.getElementById('successMessage');
+
+    const redirectUrls = [
+      "https://www.profitableratecpm.com/vknry4u8?key=9df3f46832183b84289d47934e202ac4",
+      "https://www.profitableratecpm.com/a73ufgi0?key=2aac1674131a660cab308352aa0660fe",
+      "https://www.profitableratecpm.com/vzr76297qb?key=3041353f5f3518ca870ec1a17584174f",
+      "https://www.profitableratecpm.com/vknry4u8?key=9df3f46832183b84289d47934e202ac4",
+      "https://www.profitableratecpm.com/a73ufgi0?key=2aac1674131a660cab308352aa0660fe"
+    ];
+
+    let clickCount = 0;
+
+    activateBtn.addEventListener('click', () => {
+      const url = redirectUrls[clickCount % redirectUrls.length];
+      window.open(url, '_blank');
+
+      clickCount++;
+      clickCountEl.textContent = clickCount;
+
+      if (clickCount >= 5) {
+        downloadBtn.disabled = false;
+        successMessage.style.display = 'block';
+        if (navigator.vibrate) navigator.vibrate(200);
+      }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+      window.open("https://www.mediafire.com/file/1izc5tr5d9dky0x/PrimeTool2.4.rar/file", '_blank');
+    });
+  </script>
+</body>
+</html>
